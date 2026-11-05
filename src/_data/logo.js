@@ -35,10 +35,8 @@ const tucked = (d, x, y, size) =>
     `<svg x="${n(x)}" y="${n(y)}" width="${n(size * SHOWING)}" height="${n(size)}" viewBox="0 0 ${100 * SHOWING} 100">${path(d)}</svg>`;
 
 // Big Shoulders 900 at its display cut, measured in the browser, in ems:
-// cap height, the width of a word space, and where the ink of each piece of
-// text starts and ends.
+// cap height, and where the ink of each piece of text starts and ends.
 const CAP = 0.8;
-const SPACE = 0.22;
 const INK = {
     REEL: [0.04, 1.68],
     CAPITAL: [0.035, 2.8975],
@@ -66,24 +64,16 @@ function stack(cls = "", { lines = ["REEL", "CAPITAL", "ENTERTAINMENT"], reelLin
     return `<svg viewBox="0 0 ${width} ${n(y + 1)}" class="${cls}" aria-hidden="true">${parts.join("")}</svg>`;
 }
 
-// The name on one line with a tucked reel in front of REEL. With
-// `entertainment`, the third word follows in the same type; that word is the
-// only difference between the two one-line logos. The drawing is 1em of type
-// per 100 units, so its width in ems keeps the letters the same height in both.
-function oneLine(cls = "", entertainment = false) {
+// The name on one line with a tucked reel in front of REEL. The drawing is
+// 1em of type per 100 units, so its width in ems sets the size of the letters.
+function oneLine(cls = "") {
     const size = 100;
     const cap = size * CAP;
-    const [nameLeft, nameRight] = INK["REEL CAPITAL"];
-    const [entLeft, entRight] = INK.ENTERTAINMENT;
-    let x = cap * (SHOWING + AIR);
-    let parts = tucked(REEL_6, 0, 0, cap) + text("REEL CAPITAL", x - nameLeft * size, cap, size);
-    x += (nameRight - nameLeft) * size;
-    if (entertainment) {
-        x += SPACE * size;
-        parts += text("ENTERTAINMENT", x - entLeft * size, cap, size);
-        x += (entRight - entLeft) * size;
-    }
-    return `<svg viewBox="0 0 ${n(x)} ${cap + 1}" class="${cls}" style="width:min(100%,${n(x / size)}em)" aria-hidden="true">${parts}</svg>`;
+    const [left, right] = INK["REEL CAPITAL"];
+    const start = cap * (SHOWING + AIR);
+    const width = start + (right - left) * size;
+    const parts = tucked(REEL_6, 0, 0, cap) + text("REEL CAPITAL", start - left * size, cap, size);
+    return `<svg viewBox="0 0 ${n(width)} ${cap + 1}" class="${cls}" style="width:min(100%,${n(width / size)}em)" aria-hidden="true">${parts}</svg>`;
 }
 
 const TWO_LINES = ["REEL", "CAPITAL"];
@@ -122,23 +112,19 @@ const variants = [
         lockup: (small) => stack("lockup-stack", small ? { lines: TWO_LINES, reelLine: 0 } : { reelLine: 0 }),
         icon: reelIcon(REEL_6),
     },
-    {
-        id: "g",
-        letter: "G",
-        path: "/g/",
-        stacked: false,
-        title: "Reel and full name",
-        note: "The same as A with the word ENTERTAINMENT added, all on one line in the same type.",
-        lockup: () => oneLine("lockup-line", true),
-        icon: reelIcon(REEL_6),
-    },
 ];
 
 // The same reel with 5, 6 and 8 holes, for comparison on /logos/.
 const reels = [
     { label: "5 holes", svg: reelSvg(REEL_5, "h-24 w-24") },
-    { label: "6 holes (used in logos A, E and G)", svg: reelSvg(REEL_6, "h-24 w-24") },
+    { label: "6 holes (used in logos A and E)", svg: reelSvg(REEL_6, "h-24 w-24") },
     { label: "8 holes", svg: reelSvg(REEL_8, "h-24 w-24") },
 ];
 
-export default { variants, reels };
+// Every logo on both page colors: the site as designed (black on white), and
+// the same site with black and white swapped. `base` is the white-page address.
+const pages = ["light", "dark"].flatMap((theme) =>
+    variants.map((v) => ({ ...v, theme, base: v.path, path: theme === "dark" ? `${v.path}dark/` : v.path }))
+);
+
+export default { variants, pages, reels };

@@ -1,8 +1,13 @@
-{# Logo-review switcher, so the logo options can be compared on the real site. Remove before launch. #}
-<nav class="version-switch" aria-label="Logo options">
+{# Review switcher: flips between the logo options and the two page colors. Remove before launch. #}
+<nav class="version-switch" aria-label="Review options">
     <span>Logo</span>
     {% for v in logo.variants %}
-    <a href="{{ v.path }}" {% if variant and v.id == variant.id %}aria-current="page"{% endif %}>{{ v.letter }}</a>
+    <a href="{{ v.path }}{% if variant and variant.theme == 'dark' %}dark/{% endif %}" {% if variant and v.id == variant.id %}aria-current="page"{% endif %}>{{ v.letter }}</a>
     {% endfor %}
+    {% if variant %}
+    <span class="version-switch-label">Page</span>
+    <a href="{{ variant.base }}" {% if variant.theme == "light" %}aria-current="page"{% endif %}>White</a>
+    <a href="{{ variant.base }}dark/" {% if variant.theme == "dark" %}aria-current="page"{% endif %}>Black</a>
+    {% endif %}
     <a href="/logos/" {% if page.url == "/logos/" %}aria-current="page"{% endif %}>Compare</a>
 </nav>

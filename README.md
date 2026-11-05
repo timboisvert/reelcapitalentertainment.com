@@ -67,14 +67,17 @@ order. Only `title` is required; any field left out simply does not render.
 ## Logo options (review only)
 
 The logo options are drawn in code in `src/_data/logo.js`. For review, the
-home page is built once per option: A at `/`, the others at `/b/`, `/e/` and
-so on. The small "Logo" bar at the bottom of each page
-(`src/_includes/switch.njk`) flips between them, and `/logos/`
-(`src/logos.njk`) shows them side by side.
+home page is built once per option (A at `/`, the others at `/b/` and `/e/`)
+and again with black and white swapped (add `dark/`: `/dark/`, `/b/dark/`,
+`/e/dark/`). The small bar at the bottom of each page
+(`src/_includes/switch.njk`) flips between logos and page colors, and
+`/logos/` (`src/logos.njk`) shows the logos side by side.
 
-Once a logo is chosen: delete the other entries from `variants` in `logo.js`,
-give the remaining one `path: "/"`, and delete `src/logos.njk` and the
-switcher include (and its line in `src/_includes/base.njk`).
+Once a logo and page color are chosen: delete the other entries from
+`variants` in `logo.js`, give the remaining one `path: "/"`, cut `pages` down
+to the chosen color, and delete `src/logos.njk` and the switcher include (and
+its line in `src/_includes/base.njk`). The black-page colors are the
+`html[data-theme='dark']` rules at the top of `src/style.css`.
 
 ## Where things live
 

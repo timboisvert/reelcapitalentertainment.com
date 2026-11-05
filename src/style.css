@@ -19,6 +19,21 @@
     --color-accent: #e4002b;
 }
 
+/*
+ * The black-page versions (review only): black and white trade places
+ * everywhere, so the white page turns black and the black projects section
+ * turns white. The red section keeps its own colors.
+ */
+html[data-theme='dark'] {
+    --color-ink: #fff;
+    --color-white: #0b0b0b;
+}
+
+html[data-theme='dark'] #contact {
+    --color-ink: #0b0b0b;
+    --color-white: #fff;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 3.5rem;
@@ -26,7 +41,7 @@ html {
 
 body {
     font-family: var(--font-sans);
-    background: #fff;
+    background: var(--color-white);
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
 }
@@ -165,7 +180,7 @@ body {
     padding: 0.25rem 0.25rem 0.25rem 0.75rem;
     translate: -50% 0;
     border: 1px solid rgb(255 255 255 / 0.35);
-    background: var(--color-ink);
+    background: #0b0b0b;
     color: #fff;
     font-size: 0.75rem;
     font-weight: 500;
@@ -178,7 +193,25 @@ body {
 
 .version-switch a[aria-current] {
     background: #fff;
-    color: var(--color-ink);
+    color: #0b0b0b;
+}
+
+.version-switch-label {
+    margin-left: 0.75rem;
+}
+
+@media (max-width: 26rem) {
+    .version-switch {
+        padding-left: 0.5rem;
+    }
+
+    .version-switch a {
+        padding-inline: 0.45rem;
+    }
+
+    .version-switch-label {
+        margin-left: 0.35rem;
+    }
 }
 
 /* =====================================================================
