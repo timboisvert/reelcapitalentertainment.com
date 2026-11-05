@@ -1,0 +1,8 @@
+{# Logo-review switcher, so the logo options can be compared on the real site. Remove before launch. #}
+<nav class="version-switch" aria-label="Logo options">
+    <span>Logo</span>
+    {% for v in logo.variants %}
+    <a href="{{ v.path }}" {% if variant and v.id == variant.id %}aria-current="page"{% endif %}>{{ v.letter }}</a>
+    {% endfor %}
+    <a href="/logos/" {% if page.url == "/logos/" %}aria-current="page"{% endif %}>Compare</a>
+</nav>

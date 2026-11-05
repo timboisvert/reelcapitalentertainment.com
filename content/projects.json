@@ -1,0 +1,84 @@
+[
+    {
+        "title": "Replacer",
+        "genre": "Horror",
+        "status": "Post-production",
+        "logline": "A troubled DJ stranded in Montreal falls in with an alluring artist and the friends who run his underground radio station.",
+        "director": "Avan Jogia",
+        "cast": [
+            "Halsey",
+            "Karl Glusman",
+            "Juliette Gariépy"
+        ],
+        "image": "Replacer.jpg",
+        "imageCredit": "Noovo Moi",
+        "links": [],
+        "press": [
+            {
+                "outlet": "Rolling Stone",
+                "title": "Halsey to star in horror film Replacer with Avan Jogia and Lilly Wachowski",
+                "url": "https://ca.rollingstone.com/halsey-horror-film-replacer-avan-jogia-lily-wachowski/"
+            },
+            {
+                "outlet": "Fangoria",
+                "title": "Halsey to star in Wachowski-produced psychosexual horror Replacer",
+                "url": "https://www.fangoria.com/halsey-replacer/"
+            },
+            {
+                "outlet": "Bloody Disgusting",
+                "title": "Halsey will star in Replacer; plot details revealed",
+                "url": "https://bloody-disgusting.com/movie/3951494/halsey-will-star-in-psychosexual-horror-movie-replacer-plot-details-revealed/"
+            },
+            {
+                "outlet": "Dread Central",
+                "title": "Karl Glusman and Juliette Gariépy join the cast of Replacer",
+                "url": "https://www.dreadcentral.com/news/587511/replacer-karl-glusman-and-juliette-gariepy-join-cast-of-psycho-sexual-horror-film-starring-halsey/"
+            },
+            {
+                "outlet": "Noovo Moi",
+                "title": "Juliette Gariépy aux côtés de Halsey et Karl Glusman dans un nouveau film d'horreur tourné à Montréal",
+                "url": "https://www.noovomoi.ca/en-vedette/article/juliette-gariepy-aux-cotes-de-halsey-et-karl-glusman-dans-un-nouveau-film-dhorreur-tourne-a-montreal/"
+            }
+        ]
+    },
+    {
+        "title": "A Body in the Woods",
+        "genre": "Folk horror",
+        "status": "Post-production",
+        "logline": "A turn-of-the-century folk horror about a woman living deep in the Marshall Woods.",
+        "director": "Stephen Cognetti",
+        "cast": [
+            "Emma Roberts"
+        ],
+        "image": "A Body in the Woods.jpg",
+        "imageCredit": "C2 Motion Picture Group",
+        "links": [],
+        "press": [
+            {
+                "outlet": "Screen Daily",
+                "title": "EFM 2026: buzz titles from North America",
+                "url": "https://www.screendaily.com/features/efm-2026-15-buzz-titles-from-north-america/5213688.article"
+            },
+            {
+                "outlet": "Bloody Disgusting",
+                "title": "Emma Roberts to star in folk horror A Body in the Woods from the Hell House LLC creator",
+                "url": "https://bloody-disgusting.com/movie/3934669/emma-roberts-to-star-in-folk-horror-a-body-in-the-woods-from-hell-house-llc-creator/"
+            },
+            {
+                "outlet": "Fangoria",
+                "title": "Emma Roberts leads witchy horror from the Hell House LLC director",
+                "url": "https://www.fangoria.com/emma-roberts-a-body-in-the-woods/"
+            },
+            {
+                "outlet": "Dread Central",
+                "title": "Hell House LLC creator taps Emma Roberts for A Body in the Woods",
+                "url": "https://www.dreadcentral.com/news/557034/hell-house-llc-creator-taps-emma-roberts-for-folk-horror-a-body-in-the-woods"
+            },
+            {
+                "outlet": "Screen Anarchy",
+                "title": "Emma Roberts set to star in folklore horror A Body in the Woods",
+                "url": "https://screenanarchy.com/2026/02/a-body-in-the-woods-emma-roberts-set-to-star-folklore-horror.html"
+            }
+        ]
+    }
+]

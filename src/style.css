@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,700..900&family=Libre+Franklin:wght@400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+
+/*
+ * The look: a film poster, not a brochure. Heavy condensed capitals, black on
+ * white, hairline rules, and one flat red. No cards, gradients or ornament.
+ *
+ * Headlines are Big Shoulders, the typeface drawn for the City of Chicago.
+ * Body text is Libre Franklin, a plain American newspaper gothic.
+ *
+ * Brand tokens live here: change the fonts or --color-accent in one place.
+ */
+@theme {
+    --font-display: 'Big Shoulders', 'Arial Narrow', sans-serif;
+    --font-sans: 'Libre Franklin', system-ui, sans-serif;
+
+    --color-ink: #0b0b0b;
+    --color-accent: #e4002b;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3.5rem;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: #fff;
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.wrap {
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+}
+
+@media (min-width: 40rem) {
+    .wrap {
+        padding-inline: 2rem;
+    }
+}
+
+@media (min-width: 64rem) {
+    .wrap {
+        padding-inline: 3rem;
+    }
+}
+
+/* ---------- Type ---------- */
+
+/* Anything in the display face is set in heavy capitals. */
+.font-display,
+.display-xl,
+.display-lg,
+.display-md {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Sized so the longest hero line runs the full width of the page. */
+.display-xl {
+    font-size: clamp(2.5rem, 15.2vw, 14.7rem);
+    font-weight: 900;
+    line-height: 0.82;
+    letter-spacing: -0.005em;
+}
+
+.display-lg {
+    font-size: clamp(3.25rem, 10.4vw, 10rem);
+    font-weight: 900;
+    line-height: 0.84;
+}
+
+.display-md {
+    font-size: clamp(2.1rem, 4.6vw, 4.25rem);
+    line-height: 0.96;
+}
+
+/* Plain text link: a rule under it that thickens on hover. */
+.link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: text-decoration-color 0.15s;
+}
+
+.link:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* ---------- Numbered stages ---------- */
+
+.stage-num {
+    transition: color 0.18s;
+}
+
+@media (hover: hover) {
+    .stage:hover .stage-num {
+        color: var(--color-accent);
+    }
+}
+
+/* ---------- Projects: one whole card at a time ---------- */
+
+.film-track {
+    position: relative;
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+}
+
+.film-track::-webkit-scrollbar {
+    display: none;
+}
+
+.film {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* On the solid red section, selection and focus need to flip to white. */
+#contact ::selection {
+    background: #fff;
+    color: var(--color-ink);
+}
+
+#contact :focus-visible {
+    outline-color: #fff;
+}
+
+/* ---------- Logo-review switcher (remove before launch) ---------- */
+
+.version-switch {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+    translate: -50% 0;
+    border: 1px solid rgb(255 255 255 / 0.35);
+    background: var(--color-ink);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.version-switch a {
+    padding: 0.3rem 0.7rem;
+}
+
+.version-switch a[aria-current] {
+    background: #fff;
+    color: var(--color-ink);
+}
+
+/* =====================================================================
+   Logos (the site header and footer, and /logos/). Each lockup scales with font-size and takes its
+   color from the text color, so one definition works on any background.
+   ===================================================================== */
+
+.lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    font-family: var(--font-display);
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Always the display cut, so the logo is the same shape at every size. */
+    font-variation-settings: 'opsz' 72;
+}
+
+.lockup-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.11em;
+}
+
+.lockup-name {
+    line-height: 0.74;
+}
+
+/* "Entertainment", spread letter by letter to the width of the name. */
+.lockup-sub {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 0.15em;
+    font-family: var(--font-sans);
+    font-size: 0.15em;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.lockup-mark {
+    flex: none;
+    width: auto;
+    height: 1em;
+}
+
+/* The stacked title block is one drawing, sized by its height. */
+.lockup-stack {
+    display: block;
+    width: auto;
+    height: 2.1em;
+}
+
+/* The one-line logo: letters the same height as the other logos' names, but
+   it gives way to the space it is in. */
+.lockup-line {
+    display: block;
+    width: min(100%, 11.6em);
+    height: auto;
+}

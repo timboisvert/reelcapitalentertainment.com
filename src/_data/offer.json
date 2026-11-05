@@ -1,0 +1,39 @@
+{
+    "stagesIntro": "Money for every stage of a picture, from the script to the release.",
+    "stages": [
+        {
+            "name": "Development",
+            "text": "We buy scripts and rights, and fund the work of getting a picture ready to shoot.",
+            "items": ["Screenplay and IP acquisition", "Development financing"]
+        },
+        {
+            "name": "Production",
+            "text": "We put up equity and co-finance the shoot.",
+            "items": ["Production funding", "Co-financing and equity"]
+        },
+        {
+            "name": "Post",
+            "text": "We fund the finish, through to delivery.",
+            "items": ["Post-production", "Completion and delivery"]
+        },
+        {
+            "name": "Distribution",
+            "text": "We back the release and the sales effort.",
+            "items": ["Distribution arrangements", "Sales and exploitation"]
+        },
+        {
+            "name": "Lending",
+            "text": "We lend against a picture's rights, at any point along the way.",
+            "items": ["Senior and gap loans", "Presale and tax-credit loans", "Unsold-territory loans"]
+        }
+    ],
+    "criteriaIntro": "We invest behind evidence, not just enthusiasm. Every project gets the same six questions.",
+    "criteria": [
+        { "name": "Marketability", "text": "Is there a clear audience, and a way to reach it?" },
+        { "name": "Team", "text": "Have the producer and director delivered before?" },
+        { "name": "Talent", "text": "Does the cast move the needle with buyers?" },
+        { "name": "Distribution", "text": "Is there a credible path to sales, presales or a platform?" },
+        { "name": "Revenue", "text": "Do the projections hold up when we push on them?" },
+        { "name": "Structure", "text": "Where does our money sit, and what secures it?" }
+    ]
+}

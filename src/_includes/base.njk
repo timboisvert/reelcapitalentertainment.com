@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
+    <meta name="description" content="{{ description or site.description }}">
+    <link rel="canonical" href="{{ site.url }}/">{% if variant.path != "/" %}
+    <meta name="robots" content="noindex">{% endif %}
+    <meta property="og:title" content="{{ title or site.name }}">
+    <meta property="og:description" content="{{ description or site.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}/">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/style.css">
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="/site.js" defer></script>
+</head>
+<body class="min-h-screen">
+    <header class="sticky top-0 z-50 border-b border-ink/15 bg-white">
+        <div class="wrap flex h-14 items-center justify-between gap-6 text-sm">
+            {# The logo for this review version (src/_data/logo.js). #}
+            <a href="{{ variant.path }}" aria-label="{{ site.name }}" class="min-w-0 flex-1 {{ 'text-[1.3rem]' if variant.stacked else 'text-[1.9rem]' }}">{{ variant.lockup(true) | safe }}</a>
+            <nav class="flex flex-none items-center gap-8">
+                <a href="#financing" class="hidden hover:text-accent md:inline">What we finance</a>
+                <a href="#approach" class="hidden hover:text-accent md:inline">What we look for</a>
+                <a href="#projects" class="hidden hover:text-accent md:inline">Projects</a>
+                <a href="#contact" class="hover:text-accent">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    <footer class="border-t border-ink/15 pb-16">
+        <div class="wrap pt-12 text-[3.25rem] sm:text-[4.5rem] lg:pt-16" role="img" aria-label="{{ site.name }}">{{ variant.lockup(false) | safe }}</div>
+        <div class="wrap grid gap-6 py-10 text-xs leading-relaxed text-ink/60 md:grid-cols-12">
+            <p class="md:col-span-4">&copy; {{ build.year }} {{ site.legalName }}</p>
+            <p class="md:col-span-8">
+                Nothing on this website is an offer to sell, or a solicitation of an offer to buy, any security.
+                Any financing is subject to underwriting, diligence and definitive documentation.
+            </p>
+        </div>
+    </footer>
+
+    {% include "switch.njk" %}
+</body>
+</html>

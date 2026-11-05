@@ -1,0 +1,213 @@
+---
+layout: base.njk
+# One copy of the page per logo option, for review (src/_data/logo.js).
+pagination:
+    data: logo.variants
+    size: 1
+    alias: variant
+permalink: "{{ variant.path }}"
+---
+
+{# ---------- Hero ---------- #}
+<section>
+    <div class="wrap pb-16 pt-14 sm:pb-24 sm:pt-20 lg:pt-24">
+        <h1 class="display-xl">We put money<br>into movies.</h1>
+
+        <div class="mt-12 grid gap-8 md:mt-20 md:grid-cols-12">
+            <div class="md:col-span-7 md:col-start-6 lg:col-span-6 lg:col-start-7">
+                <p class="text-xl leading-snug sm:text-2xl">
+                    {{ site.name }} finances independent film. We invest in pictures and we lend to them,
+                    from the first draft to delivery.
+                </p>
+                <p class="mt-8 flex flex-wrap gap-x-10 gap-y-3 text-lg">
+                    <a href="#contact" class="link">Bring us a project</a>
+                    <a href="#projects" class="link">See our projects</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ---------- What we finance: the numbered stages (src/_data/offer.json) ---------- #}
+<section id="financing" class="border-t border-ink">
+    <div class="wrap py-16 lg:py-24">
+        <div class="grid gap-x-8 gap-y-8 lg:grid-cols-12">
+            <h2 class="text-sm font-medium lg:col-span-3">What we finance</h2>
+            <p class="display-md max-w-4xl lg:col-span-9">{{ offer.stagesIntro }}</p>
+        </div>
+
+        <ol class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:mt-20 lg:grid-cols-5">
+            {% for stage in offer.stages %}
+            <li class="stage border-t border-ink pt-5">
+                <span class="stage-num block font-display text-8xl leading-[0.85] lg:text-9xl">{{ loop.index }}</span>
+                <h3 class="mt-6 text-lg font-semibold">{{ stage.name }}</h3>
+                <p class="mt-2 leading-snug">{{ stage.text }}</p>
+                <ul class="mt-5 space-y-1.5 text-sm text-ink/60">
+                    {% for item in stage.items %}<li>{{ item }}</li>{% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+
+{# ---------- What we look for ---------- #}
+<section id="approach" class="border-t border-ink">
+    <div class="wrap grid gap-x-8 gap-y-8 py-16 lg:grid-cols-12 lg:py-24">
+        <h2 class="text-sm font-medium lg:sticky lg:top-24 lg:col-span-3 lg:self-start">What we look for</h2>
+        <div class="lg:col-span-9">
+            <p class="display-md max-w-4xl">
+                {{ offer.criteriaIntro }}
+            </p>
+            <dl class="mt-12 grid gap-x-12 sm:grid-cols-2 lg:mt-16">
+                {% for c in offer.criteria %}
+                <div class="border-t border-ink/20 py-6">
+                    <dt class="text-sm font-medium text-ink/60">{{ c.name }}</dt>
+                    <dd class="mt-2 font-display text-3xl leading-[1.08]">{{ c.text }}</dd>
+                </div>
+                {% endfor %}
+            </dl>
+        </div>
+    </div>
+</section>
+
+{# ---------- Projects: one film at a time (content/projects.json) ---------- #}
+<section id="projects" class="bg-ink text-white">
+    <div class="wrap py-16 lg:py-24" data-viewer>
+        <div class="flex items-center justify-between gap-6 text-sm">
+            <h2 class="font-medium">Projects</h2>
+            {% if projects.length > 1 %}
+            <div class="flex items-center gap-3" data-film-controls hidden>
+                <button type="button" data-film-prev aria-label="Previous project" class="grid h-11 w-11 place-items-center rounded-full border border-white/40 transition-colors hover:border-white hover:bg-white hover:text-ink">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-5 w-5" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+                </button>
+                <span class="min-w-[3.25rem] text-center tabular-nums text-white/60" data-film-count>1 / {{ projects.length }}</span>
+                <button type="button" data-film-next aria-label="Next project" class="grid h-11 w-11 place-items-center rounded-full border border-white/40 transition-colors hover:border-white hover:bg-white hover:text-ink">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-5 w-5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if projects.length %}
+        <div class="film-track mt-8" data-film-track>
+            {% for p in projects %}
+            <article class="film" data-film data-title="{{ p.title }}">
+                <h3 class="display-lg">{{ p.title }}</h3>
+
+                <div class="mt-8 grid gap-x-8 gap-y-8 lg:mt-10 lg:grid-cols-12">
+                    <figure class="lg:col-span-8">
+                        <div>
+                            <div class="aspect-video overflow-hidden bg-white/5">
+                                {% if p.image %}
+                                <img src="/images/{{ p.image | urlencode }}" alt="{{ p.title }}" {% if not loop.first %}loading="lazy"{% endif %} class="h-full w-full object-cover">
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if p.image and p.imageCredit %}
+                        <figcaption class="mt-2 text-xs text-white/50">Image: {{ p.imageCredit }}</figcaption>
+                        {% endif %}
+                    </figure>
+
+                    <div class="lg:col-span-4">
+                        {% if p.logline %}<p class="text-xl leading-snug">{{ p.logline }}</p>{% endif %}
+
+                        <dl class="mt-8 border-b border-white/20">
+                            {% if p.director %}
+                            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-t border-white/20 py-3"><dt class="text-white/50">Director</dt><dd>{{ p.director }}</dd></div>
+                            {% endif %}
+                            {% if p.cast and p.cast.length %}
+                            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-t border-white/20 py-3"><dt class="text-white/50">Cast</dt><dd>{{ p.cast | join(", ") }}</dd></div>
+                            {% endif %}
+                            {% if p.genre %}
+                            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-t border-white/20 py-3"><dt class="text-white/50">Genre</dt><dd>{{ p.genre }}</dd></div>
+                            {% endif %}
+                            {% if p.year %}
+                            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-t border-white/20 py-3"><dt class="text-white/50">Year</dt><dd>{{ p.year }}</dd></div>
+                            {% endif %}
+                            {% if p.status %}
+                            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-t border-white/20 py-3"><dt class="text-white/50">Status</dt><dd>{{ p.status }}</dd></div>
+                            {% endif %}
+
+                            {# Our contribution. Every field is optional; with no "contribution" at all, nothing renders. #}
+                            {% set c = p.contribution %}
+                            {% if c and (c.role or c.amount or c.detail or (c.credits and c.credits.length)) %}
+                            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-t border-white/20 py-3">
+                                <dt class="text-white/50">Our role</dt>
+                                <dd>
+                                    {% if c.role or c.amount %}<p>{{ c.role }}{% if c.role and c.amount %}, {% endif %}{{ c.amount }}</p>{% endif %}
+                                    {% if c.detail %}<p class="mt-1 text-white/70">{{ c.detail }}</p>{% endif %}
+                                    {% for credit in c.credits or [] %}<p class="mt-1 text-white/70">{{ credit }}</p>{% endfor %}
+                                </dd>
+                            </div>
+                            {% endif %}
+                        </dl>
+
+                        {% if p.links and p.links.length %}
+                        <p class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-lg">
+                            {% for link in p.links %}
+                            <a href="{{ link.url }}" target="_blank" rel="noopener" class="link">{{ link.label }}</a>
+                            {% endfor %}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {# Coverage elsewhere on the web. #}
+                {% if p.press and p.press.length %}
+                <div class="mt-14 grid gap-x-8 gap-y-4 lg:grid-cols-12">
+                    <h4 class="text-sm font-medium text-white/50 lg:col-span-3">In the press</h4>
+                    <ul class="grid gap-x-12 border-b border-white/20 sm:grid-cols-2 lg:col-span-9">
+                        {% for item in p.press %}
+                        <li class="border-t border-white/20">
+                            <a href="{{ item.url }}" target="_blank" rel="noopener" class="group block py-4">
+                                <span class="block text-sm text-white/50">{{ item.outlet }}</span>
+                                <span class="mt-1 block text-lg leading-snug underline-offset-4 group-hover:underline">{{ item.title }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="display-md mt-6">Our projects will be listed here shortly.</p>
+        {% endif %}
+    </div>
+</section>
+
+{# ---------- Contact ---------- #}
+<section id="contact" class="bg-accent text-white">
+    <div class="wrap py-16 lg:py-24">
+        <h2 class="display-xl">Bring us<br>a project.</h2>
+
+        <div class="mt-14 grid gap-10 md:mt-20 md:grid-cols-12">
+            <p class="text-xl leading-snug md:col-span-5">
+                Got a film that needs money? Send us the script, the budget and who's attached.
+                We invest and we lend, and we'll give you a straight answer.
+            </p>
+            <dl class="space-y-8 md:col-span-6 md:col-start-7">
+                {% if site.email %}
+                <div>
+                    <dt class="text-sm text-white/85">Email</dt>
+                    <dd class="mt-1 font-display text-4xl leading-none sm:text-5xl"><a href="mailto:{{ site.email }}" class="link">{{ site.email }}</a></dd>
+                </div>
+                {% endif %}
+                {% if site.phone %}
+                <div>
+                    <dt class="text-sm text-white/85">Phone</dt>
+                    <dd class="mt-1 font-display text-6xl leading-none sm:text-7xl"><a href="tel:+1{{ site.phone | replace('-', '') }}" class="link">{{ site.phone }}</a></dd>
+                </div>
+                {% endif %}
+                {% if site.addressLines.length %}
+                <div>
+                    <dt class="text-sm text-white/85">Office</dt>
+                    <dd class="mt-2 text-xl leading-snug">{% for line in site.addressLines %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</dd>
+                </div>
+                {% endif %}
+            </dl>
+        </div>
+    </div>
+</section>
