@@ -64,20 +64,23 @@ order. Only `title` is required; any field left out simply does not render.
   should appear.
 - **`"published": false`** hides an entry without deleting it.
 
-## Logo options (review only)
+## Logo and media kit
 
-The logo options are drawn in code in `src/_data/logo.js`. For review, the
-home page is built once per option (A at `/`, the others at `/b/` and `/e/`)
-and again with black and white swapped (add `dark/`: `/dark/`, `/b/dark/`,
-`/e/dark/`). The small bar at the bottom of each page
-(`src/_includes/switch.njk`) flips between logos and page colors, and
-`/logos/` (`src/logos.njk`) shows the logos side by side.
+The logo is the stacked title block. It is drawn in `lib/logo.js` from letter
+outlines taken from Big Shoulders (`lib/logo-outlines.js`), so it does not
+depend on a web font. The site uses it inline: the short two-line version in
+the header and the full one in the footer.
 
-Once a logo and page color are chosen: delete the other entries from
-`variants` in `logo.js`, give the remaining one `path: "/"`, cut `pages` down
-to the chosen color, and delete `src/logos.njk` and the switcher include (and
-its line in `src/_includes/base.njk`). The black-page colors are the
-`html[data-theme='dark']` rules at the top of `src/style.css`.
+`/media-kit/` (`src/media-kit.njk`, linked from the footer) offers the logo
+for download. The files live in `public/media/` and are listed in `kit` in
+`lib/logo.js`. After changing the logo or that list, rewrite them (and the
+browser-tab icons in `public/`) with:
+
+```bash
+bun run logos
+```
+
+Then commit the changed files.
 
 ## Where things live
 
@@ -88,5 +91,7 @@ its line in `src/_includes/base.njk`). The black-page colors are the
 | Company name, phone, address, email | `src/_data/site.json` |
 | Page layout and remaining copy | `src/index.njk` |
 | Header, footer, meta tags | `src/_includes/base.njk` |
+| Logo drawing and download list | `lib/logo.js` |
+| Media kit page and its files | `src/media-kit.njk`, `public/media/` |
 | Colors and fonts (brand tokens) | `src/style.css` |
-| Projects script, favicon, robots.txt | `public/` |
+| Projects script, browser-tab icons, robots.txt | `public/` |

@@ -1,17 +1,18 @@
 {
-	"name": "reel-capital-entertainment",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "concurrently \"npx @11ty/eleventy --serve --watch\" \"npx @tailwindcss/cli -i ./src/style.css -o ./_site/style.css --watch\"",
-		"build": "npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/style.css -o ./_site/style.css --minify"
-	},
-	"devDependencies": {
-		"@11ty/eleventy": "^3.0.0",
-		"@tailwindcss/cli": "^4.1.18",
-		"concurrently": "^9.0.0",
-		"sharp": "^0.35.3",
-		"tailwindcss": "^4.1.18"
-	}
+    "name": "reel-capital-entertainment",
+    "private": true,
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently \"npx @11ty/eleventy --serve --watch\" \"npx @tailwindcss/cli -i ./src/style.css -o ./_site/style.css --watch\"",
+        "build": "npx @11ty/eleventy && npx @tailwindcss/cli -i ./src/style.css -o ./_site/style.css --minify",
+        "logos": "node scripts/make-logos.mjs"
+    },
+    "devDependencies": {
+        "@11ty/eleventy": "^3.0.0",
+        "@tailwindcss/cli": "^4.1.18",
+        "concurrently": "^9.0.0",
+        "sharp": "^0.35.3",
+        "tailwindcss": "^4.1.18"
+    }
 }

@@ -19,21 +19,6 @@
     --color-accent: #e4002b;
 }
 
-/*
- * The black-page versions (review only): black and white trade places
- * everywhere, so the white page turns black and the black projects section
- * turns white. The red section keeps its own colors.
- */
-html[data-theme='dark'] {
-    --color-ink: #fff;
-    --color-white: #0b0b0b;
-}
-
-html[data-theme='dark'] #contact {
-    --color-ink: #0b0b0b;
-    --color-white: #fff;
-}
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 3.5rem;
@@ -165,70 +150,4 @@ body {
 
 #contact :focus-visible {
     outline-color: #fff;
-}
-
-/* ---------- Logo-review switcher (remove before launch) ---------- */
-
-.version-switch {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    z-index: 60;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.25rem 0.25rem 0.25rem 0.75rem;
-    translate: -50% 0;
-    border: 1px solid rgb(255 255 255 / 0.35);
-    background: #0b0b0b;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.version-switch a {
-    padding: 0.3rem 0.7rem;
-}
-
-.version-switch a[aria-current] {
-    background: #fff;
-    color: #0b0b0b;
-}
-
-.version-switch-label {
-    margin-left: 0.75rem;
-}
-
-@media (max-width: 26rem) {
-    .version-switch {
-        padding-left: 0.5rem;
-    }
-
-    .version-switch a {
-        padding-inline: 0.45rem;
-    }
-
-    .version-switch-label {
-        margin-left: 0.35rem;
-    }
-}
-
-/* =====================================================================
-   Logos (the site header and footer, and /logos/). Each lockup scales with font-size and takes its
-   color from the text color, so one definition works on any background.
-   ===================================================================== */
-
-/* The stacked title block is one drawing, sized by its height. */
-.lockup-stack {
-    display: block;
-    width: auto;
-    height: 2.1em;
-}
-
-/* The one-line logos set their own width in ems (see logo.js), so the
-   letters are the same height in each, and give way to the space they are in. */
-.lockup-line {
-    display: block;
-    height: auto;
 }
