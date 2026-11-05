@@ -186,46 +186,6 @@ body {
    color from the text color, so one definition works on any background.
    ===================================================================== */
 
-.lockup {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2em;
-    font-family: var(--font-display);
-    font-weight: 900;
-    line-height: 1;
-    text-transform: uppercase;
-    white-space: nowrap;
-    /* Always the display cut, so the logo is the same shape at every size. */
-    font-variation-settings: 'opsz' 72;
-}
-
-.lockup-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.11em;
-}
-
-.lockup-name {
-    line-height: 0.74;
-}
-
-/* "Entertainment", spread letter by letter to the width of the name. */
-.lockup-sub {
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 0.15em;
-    font-family: var(--font-sans);
-    font-size: 0.15em;
-    font-weight: 600;
-    line-height: 1;
-}
-
-.lockup-mark {
-    flex: none;
-    width: auto;
-    height: 1em;
-}
-
 /* The stacked title block is one drawing, sized by its height. */
 .lockup-stack {
     display: block;
@@ -233,10 +193,9 @@ body {
     height: 2.1em;
 }
 
-/* The one-line logo: letters the same height as the other logos' names, but
-   it gives way to the space it is in. */
+/* The one-line logos set their own width in ems (see logo.js), so the
+   letters are the same height in each, and give way to the space they are in. */
 .lockup-line {
     display: block;
-    width: min(100%, 11.6em);
     height: auto;
 }

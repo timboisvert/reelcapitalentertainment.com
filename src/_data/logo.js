@@ -20,7 +20,7 @@ function reelPath(count, dist, r, start) {
     return d;
 }
 
-const REEL_5 = reelPath(5, 28.5, 10, -90);
+const REEL_5 = reelPath(5, 28.5, 10, -90); // shown on /logos/ for comparison only
 const REEL_6 = reelPath(6, 29, 9.5, 0);
 const REEL_8 = reelPath(8, 31, 7.5, 22.5);
 
@@ -66,32 +66,24 @@ function stack(cls = "", { lines = ["REEL", "CAPITAL", "ENTERTAINMENT"], reelLin
     return `<svg viewBox="0 0 ${width} ${n(y + 1)}" class="${cls}" aria-hidden="true">${parts.join("")}</svg>`;
 }
 
-// All three words on one line in the same type, with a tucked reel in front
-// of ENTERTAINMENT.
-function oneLine(cls = "") {
+// The name on one line with a tucked reel in front of REEL. With
+// `entertainment`, the third word follows in the same type; that word is the
+// only difference between the two one-line logos. The drawing is 1em of type
+// per 100 units, so its width in ems keeps the letters the same height in both.
+function oneLine(cls = "", entertainment = false) {
     const size = 100;
     const cap = size * CAP;
     const [nameLeft, nameRight] = INK["REEL CAPITAL"];
     const [entLeft, entRight] = INK.ENTERTAINMENT;
-    let x = (nameRight - nameLeft) * size;
-    const name = text("REEL CAPITAL", -nameLeft * size, cap, size);
-    x += SPACE * size * 1.15;
-    const reel = tucked(REEL_6, x, 0, cap);
-    x += cap * (SHOWING + AIR);
-    const ent = text("ENTERTAINMENT", x - entLeft * size, cap, size);
-    x += (entRight - entLeft) * size;
-    return `<svg viewBox="0 0 ${n(x)} ${cap + 1}" class="${cls}" aria-hidden="true">${name}${reel}${ent}</svg>`;
-}
-
-// The name beside a mark: "Reel Capital", with "Entertainment" spread letter
-// by letter underneath. Tight spaces (the site header) drop the second line.
-function name(small) {
-    const sub = [..."Entertainment"].map((ch) => `<span>${ch}</span>`).join("");
-    return (
-        `<span class="lockup-text"><span class="lockup-name">Reel Capital</span>` +
-        (small ? "" : `<span class="lockup-sub">${sub}</span>`) +
-        `</span>`
-    );
+    let x = cap * (SHOWING + AIR);
+    let parts = tucked(REEL_6, 0, 0, cap) + text("REEL CAPITAL", x - nameLeft * size, cap, size);
+    x += (nameRight - nameLeft) * size;
+    if (entertainment) {
+        x += SPACE * size;
+        parts += text("ENTERTAINMENT", x - entLeft * size, cap, size);
+        x += (entRight - entLeft) * size;
+    }
+    return `<svg viewBox="0 0 ${n(x)} ${cap + 1}" class="${cls}" style="width:min(100%,${n(x / size)}em)" aria-hidden="true">${parts}</svg>`;
 }
 
 const TWO_LINES = ["REEL", "CAPITAL"];
@@ -106,9 +98,9 @@ const variants = [
         path: "/",
         stacked: false,
         title: "Reel and name",
-        note: "The five-hole reel next to the name. The reel on its own is the small icon.",
-        lockup: (small) => `<span class="lockup">${reelSvg(REEL_5, "lockup-mark")}${name(small)}</span>`,
-        icon: reelIcon(REEL_5),
+        note: "REEL CAPITAL on one line, with a six-hole reel coming out from behind the word REEL, three quarters of it showing. The whole reel is the small icon.",
+        lockup: () => oneLine("lockup-line"),
+        icon: reelIcon(REEL_6),
     },
     {
         id: "b",
@@ -131,31 +123,21 @@ const variants = [
         icon: reelIcon(REEL_6),
     },
     {
-        id: "f",
-        letter: "F",
-        path: "/f/",
-        stacked: true,
-        title: "Title block, reel behind ENTERTAINMENT",
-        note: "The same idea with the reel on the bottom line, coming out from behind the word ENTERTAINMENT. The whole reel is the small icon.",
-        lockup: () => stack("lockup-stack", { reelLine: 2 }),
-        icon: reelIcon(REEL_6),
-    },
-    {
         id: "g",
         letter: "G",
         path: "/g/",
         stacked: false,
-        title: "One line",
-        note: "All three words on one line in the same type, with the reel coming out from behind ENTERTAINMENT. The whole reel is the small icon.",
-        lockup: () => oneLine("lockup-line"),
+        title: "Reel and full name",
+        note: "The same as A with the word ENTERTAINMENT added, all on one line in the same type.",
+        lockup: () => oneLine("lockup-line", true),
         icon: reelIcon(REEL_6),
     },
 ];
 
 // The same reel with 5, 6 and 8 holes, for comparison on /logos/.
 const reels = [
-    { label: "5 holes (logo A)", svg: reelSvg(REEL_5, "h-24 w-24") },
-    { label: "6 holes (logos E, F and G)", svg: reelSvg(REEL_6, "h-24 w-24") },
+    { label: "5 holes", svg: reelSvg(REEL_5, "h-24 w-24") },
+    { label: "6 holes (used in logos A, E and G)", svg: reelSvg(REEL_6, "h-24 w-24") },
     { label: "8 holes", svg: reelSvg(REEL_8, "h-24 w-24") },
 ];
 
