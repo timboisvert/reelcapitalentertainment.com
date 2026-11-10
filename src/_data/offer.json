@@ -1,39 +1,45 @@
 {
-    "stagesIntro": "Money for every stage of a picture, from the script to the release.",
-    "stages": [
+    "howIntro": "Two ways we put money into a picture.",
+    "sides": [
         {
-            "name": "Development",
-            "text": "We buy scripts and rights, and fund the work of getting a picture ready to shoot.",
-            "items": ["Screenplay and IP acquisition", "Development financing"]
+            "name": "Equity",
+            "text": "We invest in pictures from producers we've vetted. Before we commit, we work with you to pre-sell distribution rights, so contracts cover as much of the budget as possible. We take a share of what the film earns from there.",
+            "items": ["Production equity", "Co-financing", "Presales before the shoot"]
         },
         {
-            "name": "Production",
-            "text": "We put up equity and co-finance the shoot.",
-            "items": ["Production funding", "Co-financing and equity"]
-        },
-        {
-            "name": "Post",
-            "text": "We fund the finish, through to delivery.",
-            "items": ["Post-production", "Completion and delivery"]
-        },
-        {
-            "name": "Distribution",
-            "text": "We back the release and the sales effort.",
-            "items": ["Distribution arrangements", "Sales and exploitation"]
-        },
-        {
-            "name": "Lending",
-            "text": "We lend against a picture's rights, at any point along the way.",
-            "items": ["Senior and gap loans", "Presale and tax-credit loans", "Unsold-territory loans"]
+            "name": "Structured finance",
+            "text": "The less glamorous side, and the part that gets everyone paid. We lend against your tax credits, your signed sales contracts and your unsold territories, and we bridge you to bank financing that's on its way.",
+            "items": ["Tax-credit loans", "Presale and unsold-territory loans", "Bridge loans"]
         }
     ],
-    "criteriaIntro": "We invest behind evidence, not just enthusiasm. Every project gets the same six questions.",
+    "criteriaLead": "We turn down good films.",
+    "criteriaIntro": "If the people behind a project aren't reliable, or don't understand the financing, we pass. Every project gets the same six questions.",
     "criteria": [
-        { "name": "Marketability", "text": "Is there a clear audience, and a way to reach it?" },
+        { "name": "Marketability", "text": "Is there a clear audience and a way to reach it?" },
         { "name": "Team", "text": "Have the producer and director delivered before?" },
         { "name": "Talent", "text": "Does the cast move the needle with buyers?" },
-        { "name": "Distribution", "text": "Is there a credible path to sales, presales or a platform?" },
+        { "name": "Distribution", "text": "Is there a credible path to sales, presales, or a platform?" },
         { "name": "Revenue", "text": "Do the projections hold up when we push on them?" },
-        { "name": "Structure", "text": "Where does our money sit, and what secures it?" }
+        { "name": "Structure", "text": "Where does our money sit and what secures it?" }
+    ],
+    "investorsLead": "Film investing has been a closed room.",
+    "investorsIntro": "Most people never get offered a seat. We offer one, in film and in live entertainment, with the risk worked down before your money goes in.",
+    "investors": [
+        {
+            "name": "Access",
+            "text": "We pool capital into professionally managed funds, so you get into deals you wouldn't see alone, on better terms than you'd get alone."
+        },
+        {
+            "name": "Less risk",
+            "text": "Every film investment carries risk. We reduce it the way any careful investor would: vetted producers, distribution sold before the shoot, and loans secured by contracts and tax credits."
+        },
+        {
+            "name": "Two ways to earn",
+            "text": "Equity gives you a share of what a picture earns. Lending earns interest along the way. We do both, so the fund isn't riding on one hit."
+        },
+        {
+            "name": "Being there",
+            "text": "Festivals, premieres and award nights for the pictures you helped make, and time with the directors, the producers and the cast. People pay for that. For our investors it comes with the investment."
+        }
     ]
 }

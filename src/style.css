@@ -63,6 +63,7 @@ body {
 
 /* Anything in the display face is set in heavy capitals. */
 .font-display,
+.display-hero,
 .display-xl,
 .display-lg,
 .display-md {
@@ -71,7 +72,15 @@ body {
     text-transform: uppercase;
 }
 
-/* Sized so the longest hero line runs the full width of the page. */
+/* The tagline at the top of the home page. Sized so its longest line runs
+   the full width of the page. */
+.display-hero {
+    font-size: clamp(2.6rem, 14.1vw, 13.6rem);
+    font-weight: 900;
+    line-height: 0.82;
+    letter-spacing: -0.005em;
+}
+
 .display-xl {
     font-size: clamp(2.5rem, 15.2vw, 14.7rem);
     font-weight: 900;

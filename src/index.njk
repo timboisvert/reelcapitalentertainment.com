@@ -5,16 +5,17 @@ layout: base.njk
 {# ---------- Hero ---------- #}
 <section>
     <div class="wrap pb-16 pt-14 sm:pb-24 sm:pt-20 lg:pt-24">
-        <h1 class="display-xl">We put money<br>into movies.</h1>
+        <h1 class="display-hero">Investing in<br>the business of<br>entertainment.</h1>
 
         <div class="mt-12 grid gap-8 md:mt-20 md:grid-cols-12">
             <div class="md:col-span-7 md:col-start-6 lg:col-span-6 lg:col-start-7">
                 <p class="text-xl leading-snug sm:text-2xl">
-                    {{ site.name }} finances independent film. We invest in pictures and we lend to them,
-                    from the first draft to delivery.
+                    {{ site.name }} brings investor money to independent film.
+                    We back good pictures made by people who understand the money as well as the art.
                 </p>
                 <p class="mt-8 flex flex-wrap gap-x-10 gap-y-3 text-lg">
                     <a href="#contact" class="link">Bring us a project</a>
+                    <a href="#investors" class="link">Invest with us</a>
                     <a href="#projects" class="link">See our projects</a>
                 </p>
             </div>
@@ -22,22 +23,22 @@ layout: base.njk
     </div>
 </section>
 
-{# ---------- What we finance: the numbered stages (src/_data/offer.json) ---------- #}
-<section id="financing" class="border-t border-ink">
+{# ---------- How we work: the two sides of the business (src/_data/offer.json) ---------- #}
+<section id="how" class="border-t border-ink">
     <div class="wrap py-16 lg:py-24">
         <div class="grid gap-x-8 gap-y-8 lg:grid-cols-12">
-            <h2 class="text-sm font-medium lg:col-span-3">What we finance</h2>
-            <p class="display-md max-w-4xl lg:col-span-9">{{ offer.stagesIntro }}</p>
+            <h2 class="text-sm font-medium lg:col-span-3">How we work</h2>
+            <p class="display-md max-w-4xl lg:col-span-9">{{ offer.howIntro }}</p>
         </div>
 
-        <ol class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:mt-20 lg:grid-cols-5">
-            {% for stage in offer.stages %}
+        <ol class="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:mt-20">
+            {% for side in offer.sides %}
             <li class="stage border-t border-ink pt-5">
                 <span class="stage-num block font-display text-8xl leading-[0.85] lg:text-9xl">{{ loop.index }}</span>
-                <h3 class="mt-6 text-lg font-semibold">{{ stage.name }}</h3>
-                <p class="mt-2 leading-snug">{{ stage.text }}</p>
+                <h3 class="mt-6 font-display text-5xl leading-none">{{ side.name }}</h3>
+                <p class="mt-4 max-w-xl text-lg leading-snug">{{ side.text }}</p>
                 <ul class="mt-5 space-y-1.5 text-sm text-ink/60">
-                    {% for item in stage.items %}<li>{{ item }}</li>{% endfor %}
+                    {% for item in side.items %}<li>{{ item }}</li>{% endfor %}
                 </ul>
             </li>
             {% endfor %}
@@ -50,9 +51,8 @@ layout: base.njk
     <div class="wrap grid gap-x-8 gap-y-8 py-16 lg:grid-cols-12 lg:py-24">
         <h2 class="text-sm font-medium lg:sticky lg:top-24 lg:col-span-3 lg:self-start">What we look for</h2>
         <div class="lg:col-span-9">
-            <p class="display-md max-w-4xl">
-                {{ offer.criteriaIntro }}
-            </p>
+            <p class="display-md max-w-4xl">{{ offer.criteriaLead }}</p>
+            <p class="mt-6 max-w-2xl text-xl leading-snug">{{ offer.criteriaIntro }}</p>
             <dl class="mt-12 grid gap-x-12 sm:grid-cols-2 lg:mt-16">
                 {% for c in offer.criteria %}
                 <div class="border-t border-ink/20 py-6">
@@ -172,16 +172,47 @@ layout: base.njk
     </div>
 </section>
 
+{# ---------- For investors (src/_data/offer.json) ---------- #}
+<section id="investors">
+    <div class="wrap grid gap-x-8 gap-y-8 py-16 lg:grid-cols-12 lg:py-24">
+        <h2 class="text-sm font-medium lg:sticky lg:top-24 lg:col-span-3 lg:self-start">For investors</h2>
+        <div class="lg:col-span-9">
+            <p class="display-md max-w-4xl">{{ offer.investorsLead }}</p>
+            <p class="mt-6 max-w-2xl text-xl leading-snug">{{ offer.investorsIntro }}</p>
+            <dl class="mt-12 grid gap-x-12 sm:grid-cols-2 lg:mt-16">
+                {% for point in offer.investors %}
+                <div class="border-t border-ink/20 py-6">
+                    <dt class="font-display text-3xl leading-[1.08]">{{ point.name }}</dt>
+                    <dd class="mt-3 max-w-md leading-snug">{{ point.text }}</dd>
+                </div>
+                {% endfor %}
+            </dl>
+            <p class="mt-8 text-lg"><a href="#contact" class="link">Talk to us about investing</a></p>
+        </div>
+    </div>
+</section>
+
 {# ---------- Contact ---------- #}
 <section id="contact" class="bg-accent text-white">
     <div class="wrap py-16 lg:py-24">
-        <h2 class="display-xl">Bring us<br>a project.</h2>
+        <h2 class="display-xl">Let's talk.</h2>
 
         <div class="mt-14 grid gap-10 md:mt-20 md:grid-cols-12">
-            <p class="text-xl leading-snug md:col-span-5">
-                Got a film that needs money? Send us the script, the budget and who's attached.
-                We invest and we lend, and we'll give you a straight answer.
-            </p>
+            <div class="space-y-8 md:col-span-5">
+                <div>
+                    <h3 class="font-display text-3xl leading-none">Have a project?</h3>
+                    <p class="mt-3 text-xl leading-snug">
+                        Send us the script, the budget and who's attached.
+                        We invest and we lend, and we'll give you a straight answer.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-display text-3xl leading-none">Want to invest?</h3>
+                    <p class="mt-3 text-xl leading-snug">
+                        Call us. We'll walk you through how our funds work and what we're backing now.
+                    </p>
+                </div>
+            </div>
             <dl class="space-y-8 md:col-span-6 md:col-start-7">
                 {% if site.email %}
                 <div>

@@ -87,7 +87,7 @@ Then commit the changed files.
 | What | Where |
 | --- | --- |
 | Projects | `content/projects.json`, `images/` |
-| The numbered stages and the six questions | `src/_data/offer.json` |
+| How we work, the six questions and the investor section | `src/_data/offer.json` |
 | Company name, phone, address, email | `src/_data/site.json` |
 | Page layout and remaining copy | `src/index.njk` |
 | Header, footer, meta tags | `src/_includes/base.njk` |
