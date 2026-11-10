@@ -66,7 +66,8 @@ order. Only `title` is required; any field left out simply does not render.
 
 ## Logo and media kit
 
-The logo is the stacked title block. It is drawn in `lib/logo.js` from letter
+The logo is the stacked title block, with a six-hole reel coming out from
+behind the word REEL (the square RC icon has no reel). It is drawn in `lib/logo.js` from letter
 outlines taken from Big Shoulders (`lib/logo-outlines.js`), so it does not
 depend on a web font. The site uses it inline: the short two-line version in
 the header and the full one in the footer.
