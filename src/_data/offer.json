@@ -12,8 +12,8 @@
             "items": ["Tax-credit loans", "Presale and unsold-territory loans", "Bridge loans"]
         }
     ],
-    "criteriaLead": "We turn down good films.",
-    "criteriaIntro": "If the people behind a project aren't reliable, or don't understand the financing, we pass. Every project gets the same six questions.",
+    "criteriaLead": "We only back pictures we believe in.",
+    "criteriaIntro": "Every project goes through a rigorous vetting process, and we invest only in the ones we have the utmost confidence in. Each one gets the same six questions.",
     "criteria": [
         { "name": "Marketability", "text": "Is there a clear audience and a way to reach it?" },
         { "name": "Team", "text": "Have the producer and director delivered before?" },
