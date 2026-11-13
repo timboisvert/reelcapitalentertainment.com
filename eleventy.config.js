@@ -2,6 +2,7 @@ import sharp from "sharp";
 import { readdirSync, statSync, mkdirSync, existsSync } from "node:fs";
 import path from "node:path";
 import { webpName } from "./lib/images.js";
+import { DECK, makeDeck } from "./lib/deck.js";
 
 // Pictures dropped into /images can be any size. Each is converted to a
 // resized WebP in the build output so the site never serves multi-MB originals.
@@ -30,9 +31,16 @@ export default function (eleventyConfig) {
         await optimizeImages(dir.output);
     });
 
+    // The deck (lib/deck.js) is rebuilt from the current content on every build,
+    // so it always matches the project list. The media kit page links to it.
+    eleventyConfig.on("eleventy.after", async ({ dir }) => {
+        await makeDeck(path.join(dir.output, "media", DECK));
+    });
+
     // content/ and images/ live outside src/, so watch them explicitly.
     eleventyConfig.addWatchTarget("./content/");
     eleventyConfig.addWatchTarget("./images/");
+    eleventyConfig.addWatchTarget("./lib/");
 
     // Anything in public/ is copied to the site root as-is (site.js, favicon, robots.txt).
     eleventyConfig.addPassthroughCopy({ public: "/" });

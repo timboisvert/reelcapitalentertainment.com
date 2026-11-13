@@ -83,6 +83,27 @@ bun run logos
 
 Then commit the changed files.
 
+## The deck
+
+The Reel Capital Entertainment deck is a PDF for sending to people. It is
+drawn by `lib/deck.js` from the same content as the site
+(`content/projects.json`, `src/_data/offer.json`, `src/_data/site.json`), in
+the same type and colors, with one slide for each project.
+
+Every build writes a fresh copy to `/media/reel-capital-entertainment-deck.pdf`,
+which the media kit page links to. So adding or changing a project updates
+the deck as soon as the change is deployed; there is nothing to run by hand
+and the PDF is not committed.
+
+To look at the deck without building the site:
+
+```bash
+bun run deck
+```
+
+That writes it to `_site/media/`. If a section is added to or removed from
+the site, make the same change to the slides in `lib/deck.js`.
+
 ## Where things live
 
 | What | Where |

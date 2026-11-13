@@ -1,5 +1,6 @@
 // The logo for the templates. The drawing itself lives in lib/logo.js.
 import { COLORS, FULL, SHORT, ZIP, inline, kit } from "../../lib/logo.js";
+import { DECK } from "../../lib/deck.js";
 
 export default {
     // Inline drawings that take the color of the text around them.
@@ -10,6 +11,8 @@ export default {
     // the brand colors.
     kit,
     zip: ZIP,
+    // The deck, written into the site by eleventy.config.js on every build.
+    deck: DECK,
     // Hex and RGB are exact (they are what the site and the files use). CMYK
     // and Pantone are the closest print equivalents; white has no Pantone.
     colors: [

@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /media-kit/
 title: Media kit
-description: Official Reel Capital Entertainment logos and colors, ready to download.
+description: The official Reel Capital Entertainment logos, colors and deck, ready to download.
 ---
 {# The downloadable files are listed in lib/logo.js and written to public/media/ by `bun run logos`. #}
 
@@ -14,7 +14,7 @@ description: Official Reel Capital Entertainment logos and colors, ready to down
         <div class="mt-10 grid gap-8 md:grid-cols-12">
             <div class="md:col-span-7 lg:col-span-6">
                 <p class="text-xl leading-snug sm:text-2xl">
-                    The official {{ site.name }} logo, for anyone writing about us or working with us.
+                    The official {{ site.name }} logo and deck, for anyone writing about us or working with us.
                     Download what you need below.
                 </p>
                 <p class="mt-8 text-lg"><a href="/media/{{ logo.zip }}" download class="link">Download everything (.zip)</a></p>
@@ -50,6 +50,29 @@ description: Official Reel Capital Entertainment logos and colors, ready to down
     </div>
 </section>
 {% endfor %}
+
+{# ---------- The deck: built from the site's content on every build (lib/deck.js) ---------- #}
+<section class="border-t border-ink">
+    <div class="wrap grid gap-x-8 gap-y-8 py-12 lg:grid-cols-12 lg:py-16">
+        <div class="lg:col-span-3">
+            <h2 class="font-display text-4xl leading-none">Deck</h2>
+            <p class="mt-4 max-w-sm leading-snug text-ink/70">Who we are, how we work, what we look for and the projects we have backed, as a PDF to send on. It is rebuilt whenever the site changes, so it is always current.</p>
+        </div>
+        <div class="lg:col-span-9">
+            <a href="/media/{{ logo.deck }}" class="group block max-w-2xl" aria-label="Open the {{ site.name }} deck (PDF)">
+                <div class="flex aspect-video flex-col justify-between border border-ink/15 bg-white p-[5%]">
+                    <p class="font-display text-[clamp(1.6rem,7.2vw,4.6rem)] font-black leading-[0.82]">Investing in<br>the business of<br>entertainment.</p>
+                    <div>{{ logo.full("h-[clamp(2.25rem,9vw,5rem)] w-auto") | safe }}</div>
+                </div>
+            </a>
+            <p class="mt-3 font-medium">{{ site.name }} deck</p>
+            <p class="mt-1 flex gap-x-6 text-sm">
+                <a href="/media/{{ logo.deck }}" download class="link">Download PDF</a>
+                <a href="/media/{{ logo.deck }}" target="_blank" rel="noopener" class="link">Open in browser</a>
+            </p>
+        </div>
+    </div>
+</section>
 
 {# ---------- Colors ---------- #}
 <section class="border-t border-ink">
