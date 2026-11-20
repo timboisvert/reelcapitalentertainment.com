@@ -69,7 +69,7 @@ layout: base.njk
 <section id="projects" class="bg-ink text-white">
     <div class="wrap py-16 lg:py-24" data-viewer>
         <div class="flex items-center justify-between gap-6 text-sm">
-            <h2 class="font-medium">Projects</h2>
+            <h2 class="font-medium">Current projects</h2>
             {% if projects.length > 1 %}
             <div class="flex items-center gap-3" data-film-controls hidden>
                 <button type="button" data-film-prev aria-label="Previous project" class="grid h-11 w-11 place-items-center rounded-full border border-white/40 transition-colors hover:border-white hover:bg-white hover:text-ink">
@@ -95,6 +95,12 @@ layout: base.njk
                             <div class="aspect-video overflow-hidden bg-white/5">
                                 {% if p.image %}
                                 <img src="/images/{{ p.image | urlencode }}" alt="{{ p.title }}" {% if not loop.first %}loading="lazy"{% endif %} class="h-full w-full object-cover">
+                                {% else %}
+                                {# No picture released yet: the reel stands in. #}
+                                <div class="flex h-full w-full flex-col items-center justify-center gap-[6%]">
+                                    <div class="h-[42%] text-white/20">{{ logo.reel("h-full w-auto") | safe }}</div>
+                                    <p class="text-sm text-white/50">First look to come</p>
+                                </div>
                                 {% endif %}
                             </div>
                         </div>
@@ -212,6 +218,7 @@ layout: base.njk
                         Call us. We'll walk you through how our funds work and what we're backing now.
                     </p>
                 </div>
+                <p class="text-xl"><a href="/media/{{ logo.deck }}" target="_blank" rel="noopener" class="link">Download our deck (PDF)</a></p>
             </div>
             <dl class="space-y-8 md:col-span-6 md:col-start-7">
                 {% if site.email %}

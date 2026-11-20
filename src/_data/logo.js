@@ -1,11 +1,12 @@
 // The logo for the templates. The drawing itself lives in lib/logo.js.
-import { COLORS, FULL, SHORT, ZIP, inline, kit } from "../../lib/logo.js";
+import { COLORS, FULL, REEL, SHORT, ZIP, inline, kit } from "../../lib/logo.js";
 import { DECK } from "../../lib/deck.js";
 
 export default {
     // Inline drawings that take the color of the text around them.
     full: (cls = "") => inline(FULL, cls),
     short: (cls = "") => inline(SHORT, cls),
+    reel: (cls = "") => inline(REEL, cls),
 
     // The media kit page: the downloadable files, the zip of all of them, and
     // the brand colors.

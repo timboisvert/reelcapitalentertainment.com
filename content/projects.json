@@ -42,6 +42,41 @@
         ]
     },
     {
+        "title": "West the Road",
+        "genre": "Comedy",
+        "logline": "A group of women, reunited by the death of a childhood friend, set out to find the daughter she was forced to give up at 15, with a donkey called Thatcher in tow.",
+        "director": "Ita Fitzgerald",
+        "cast": [
+            "Imelda Staunton",
+            "Philippa Dunne",
+            "Charlie Murphy",
+            "Genevieve O'Reilly"
+        ],
+        "image": "West the Road.png",
+        "links": [],
+        "press": [
+            {
+                "outlet": "Screen Daily",
+                "title": "West the Road, starring Imelda Staunton, sells to UK-Ireland as a first look is revealed",
+                "url": "https://www.screendaily.com/news/west-the-road-starring-imelda-staunton-sells-to-uk-ireland-with-a-first-look-revealed/5216631.article"
+            },
+            {
+                "outlet": "Movies.ie",
+                "title": "Imelda Staunton joins Irish production West the Road",
+                "url": "https://www.movies.ie/imelda-staunton-joins-irish-production-west-the-road/"
+            },
+            {
+                "outlet": "Film Stories",
+                "title": "Imelda Staunton-led comedy West the Road to shoot in Ireland",
+                "url": "https://filmstories.co.uk/news/imelda-staunton-led-comedy-west-the-road-to-shoot-in-ireland/"
+            }
+        ],
+        "contribution": {
+            "role": "Structured finance",
+            "detail": "Participation in a loan secured against unsold territories."
+        }
+    },
+    {
         "title": "A Body in the Woods",
         "genre": "Folk horror",
         "status": "Post-production",
@@ -80,5 +115,79 @@
                 "url": "https://screenanarchy.com/2026/02/a-body-in-the-woods-emma-roberts-set-to-star-folklore-horror.html"
             }
         ]
+    },
+    {
+        "title": "Hide and Don't Speak",
+        "genre": "Supernatural horror",
+        "logline": "Six friends play a viral Japanese game that summons a vengeful spirit for a deadly round of hide-and-seek, and each round forces out the secrets they've buried from one another.",
+        "director": "Alexander J. Farrell",
+        "cast": [
+            "Momona Tamada",
+            "Tanner Buchanan",
+            "Garrett Wareing",
+            "Quvenzhané Wallis"
+        ],
+        "image": "Hide and Don't Speak.webp",
+        "links": [],
+        "press": [
+            {
+                "outlet": "Bloody Disgusting",
+                "title": "Cobra Kai's Tanner Buchanan plays a deadly game in Hide and Don't Speak",
+                "url": "https://bloody-disgusting.com/movie/3948455/cobra-kais-tanner-buchanan-plays-a-deadly-game-in-hide-and-dont-speak/"
+            },
+            {
+                "outlet": "Bloody Disgusting",
+                "title": "Momona Tamada summons a vengeful spirit in the Hide and Don't Speak first look",
+                "url": "https://bloody-disgusting.com/movie/3951686/momona-tamada-summons-a-vengeful-spirit-in-hide-and-dont-speak-first-look/"
+            },
+            {
+                "outlet": "Dread Central",
+                "title": "Supernatural horror Hide and Don't Speak: first look features a fearful Momona Tamada",
+                "url": "https://www.dreadcentral.com/images/572749/supernatural-horror-hide-and-dont-speak-first-look-features-a-fearful-momona-tamada/"
+            }
+        ],
+        "contribution": {
+            "role": "Structured finance",
+            "detail": "Participation in a loan secured against unsold territories."
+        }
+    },
+    {
+        "title": "Haunting Adeline",
+        "genre": "Dark romance thriller",
+        "logline": "The film of H.D. Carlton's bestselling novel. A writer moves into the manor she has inherited and becomes the obsession of a man who has been watching her.",
+        "links": [],
+        "press": [
+            {
+                "outlet": "TV Insider",
+                "title": "Haunting Adeline movie: what we know about the dark romance adaptation",
+                "url": "https://www.tvinsider.com/swooon/1306688/haunting-adeline-movie-cast-release-date-plot-updates/"
+            },
+            {
+                "outlet": "The Express Tribune",
+                "title": "Haunting Adeline film adaptation officially enters development, author H.D. Carlton confirms",
+                "url": "https://tribune.com.pk/story/2618756/haunting-adeline-film-adaptation-officially-enters-development-author-hd-carlton-confirms"
+            }
+        ],
+        "contribution": {
+            "role": "Structured finance",
+            "detail": "Bridge loan, converting to a longer-term loan."
+        }
+    },
+    {
+        "title": "Murder Ballad",
+        "genre": "Horror",
+        "logline": "A singer goes to an isolated house to make her next record, and begins to hear a dead musician in her recordings.",
+        "director": "Tom Campbell",
+        "links": [
+            {
+                "label": "Film Camp",
+                "url": "https://filmcamp.com.au/murder-ballad"
+            }
+        ],
+        "press": [],
+        "contribution": {
+            "role": "Structured finance",
+            "detail": "Participation in a loan secured against unsold territories."
+        }
     }
 ]
